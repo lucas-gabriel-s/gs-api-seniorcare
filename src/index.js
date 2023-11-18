@@ -56,4 +56,13 @@ app.post('/comment', checkInputs, (req, res, next) => {
 	}
 });
 
+app.get('/comment', (req, res, next) => {
+    try {
+        return res.status(200).json(comments);
+    } catch (err) {
+        console.log(`${err}`);
+        return res.status(500).send('Something went wrong!');
+    }
+});
+
 module.exports = app;
